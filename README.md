@@ -84,3 +84,9 @@ Availability zone
 
 #
 ## On Prem vs Hybrid vs Public Cloud
+
+#
+### Useful links
+- https://www.comparethecloud.net/articles/the-four-pillars-of-an-enterprise-data-cloud/
+- https://aws.amazon.com/application-hosting/benefits/
+- https://www.instec-corp.com/instec-insights-the-four-pillars-of-cloud-computing

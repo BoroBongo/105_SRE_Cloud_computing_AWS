@@ -50,8 +50,9 @@ You pay only for the compute power, storage, and other resources you use, with n
 
 The AWS Global Cloud is the most secure,extensive and reliable cloud platform that provides you the cloud infrastructure where and when you need it with a single-digit milisecond latency.
 
-![AWS Global Infrastructure map](map.png)
+[![AWS Global Infrastructure map (click)](map.png)](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/)
 - 84 Availability zones with 26 total regions
+
 
 #
 

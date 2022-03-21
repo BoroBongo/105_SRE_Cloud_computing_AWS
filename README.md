@@ -6,7 +6,7 @@
 
 #### Cloud computing with AWS
 
-========================================
+#
 
 #### AWS Services
 
@@ -37,13 +37,20 @@ You pay only for the compute power, storage, and other resources you use, with n
 
  SRE (Site Reliability Engineer) - Role within tech industry that is responsible for understanding every core feature of a service/product and ensuring it's availability and usability throughout it's entire lifecycle.
 
-==================
+ ### SRE traits
+ - Studious
+ - Problem Solver
+ - Creative
+ - Communicative
+ - 
+
+#
 
 ## AWS Global Infrastructure
 
 The AWS Global Cloud is the most secure,extensive and reliable cloud platform that provides you the cloud infrastructure where and when you need it with a single-digit milisecond latency.
 
-==================
+#
 
 ## Regions VS Availability Zones
 
@@ -55,7 +62,7 @@ Availability zone
 
 - One or more discrete data centers with redundant power, networking, and connectivity in an AWS Region.
 
-==================
+#
 
 ## Four pillars of cloud computing
 
@@ -107,3 +114,6 @@ Content Delivery Network refers to a geographically distributed group of servers
 - https://www.comparethecloud.net/articles/the-four-pillars-of-an-enterprise-data-cloud/
 - https://aws.amazon.com/application-hosting/benefits/
 - https://www.instec-corp.com/instec-insights-the-four-pillars-of-cloud-computing
+
+#
+#### ~Adam Franciszek Felix Kolaczynski

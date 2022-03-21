@@ -82,8 +82,25 @@ Availability zone
 #
 ## What is CDN
 
+Content Delivery Network refers to a geographically distributed group of servers that work together to provide fast delivery of Internet content.
+
 #
 ## On Prem vs Hybrid vs Public Cloud
+
+### On Premises
+- &nbsp;+ Highest level of security
+- &nbsp;+ Best for storing sensitive data
+- &nbsp;- &nbsp;Not cost Effective
+
+### Hybrid
+- &nbsp; +/- Medium cost efficiency
+- &nbsp; + Best medium for storing sensitive data while providing cost effective service
+
+### Public Cloud
+- &nbsp; + Most cost effective
+- &nbsp; - Sensitive data may be endangered
+- &nbsp; + Worldwide coverage
+  
 
 #
 ### Useful links

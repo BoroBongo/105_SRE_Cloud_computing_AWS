@@ -126,17 +126,36 @@ Funny paint/gimp diagram but displays connection of a PC(localhost) to AWS via A
 - file.pem - PEM stands for Privacy Enhanced Mail. The PEM format is often used to represent certificates, certificate requests, certificate chains, and keys. 
 - .ssh folder - folder that contains .ssh files
     - SSH, also known as Secure Shell or Secure Socket Shell, is a network protocol that gives users, particularly system administrators, a secure way to access a computer over an unsecured network.
+      - SSH uses port 22 [IMPORTANT]
 
 - As long as the connection is exactly specified it is secure
 - AWS IAM (Identity and Access Management) role is an IAM entity that defines a set of permissions for making AWS service requests. IAM roles are not associated with a specific user or group. Instead, trusted entities assume roles, such as IAM users, applications, or AWS services such as EC2.
 - EC2 - Elastic Cloud Compute - provides scalable computing capacity in the AWS cloud. Leveraging it enables organizations to develop and deploy applications faster, without needing to invest in hardware upfront. Users can launch virtual servers, configure security and networking, and manage cookies from an intuitive dashboard.
   
+#
+### Creating of an EC2 Instance
+
+- Login and access to AWS services
+- Choose AMI (ubuntu 18.0.4)
+- Choose EC2 Instance Types (default bc cheap lol)
+- Configure Instance Details
+  - Subnet choose "default a"
+- Add storage
+- Tag instance (for me it's 105_sre_adam_{purpose})
+- Configure security groups
+  - SSH on My Ip
+  - HTTP on anywhere
+  - HTTPS ONLY if you have ssl certificate
+- Review instances
+  - Select key name
+- Launch :D
 
 #
 ### Useful links
 - https://www.comparethecloud.net/articles/the-four-pillars-of-an-enterprise-data-cloud/
 - https://aws.amazon.com/application-hosting/benefits/
 - https://www.instec-corp.com/instec-insights-the-four-pillars-of-cloud-computing
+- https://www.guru99.com/creating-amazon-ec2-instance.html#3
 
 #
 #### ~Adam Franciszek Felix Kolaczynski

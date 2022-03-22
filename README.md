@@ -145,8 +145,8 @@ Funny paint/gimp diagram but displays connection of a PC(localhost) to AWS via A
 - Add storage
 - Tag instance (for me it's 105_sre_adam_{purpose})
 - Configure security groups
-  - SSH on My Ip
-  - HTTP on anywhere
+  - SSH on My Ip (port 22)
+  - HTTP on anywhere (port 80)
   - HTTPS ONLY if you have ssl certificate
 - Review instances
   - Select key name
@@ -161,6 +161,9 @@ The link should look like this:
 ` ssh -i /path/my-key-pair.pem my-instance-user-name@my-instance-public-dns-name `
 
 Once connected update all the required services via `sudo apt-get update -y` and `sudo apt-get upgrade -y` commands. Then install via `sudo apt-get install {name} -y`
+
+Example: after installing nginx with a `sudo apt-get install nginx -y` command your output from the [website](http://34.244.154.49/) should look like this:
+![picture](website_nginx.png)
 
 #
 ### Useful links

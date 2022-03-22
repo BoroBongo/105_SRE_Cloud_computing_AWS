@@ -103,6 +103,8 @@ Scaling (the server) with accordance to the demand.
 #
 ## On Prem vs Hybrid vs Public Cloud
 
+![diagrams](cloud_types.png)
+
 ### On Premises
 - &nbsp;+ Highest level of security
 - &nbsp;+ Best for storing sensitive data

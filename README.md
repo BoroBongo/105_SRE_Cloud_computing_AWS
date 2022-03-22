@@ -163,6 +163,7 @@ The link should look like this:
 Once connected update all the required services via `sudo apt-get update -y` and `sudo apt-get upgrade -y` commands. Then install via `sudo apt-get install {name} -y`
 
 Example: after installing nginx with a `sudo apt-get install nginx -y` command your output from the [website](http://34.244.154.49/) should look like this:
+
 ![picture](website_nginx.png)
 
 #

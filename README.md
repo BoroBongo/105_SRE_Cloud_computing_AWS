@@ -94,6 +94,11 @@ Availability zone
 ## What is CDN
 
 Content Delivery Network refers to a geographically distributed group of servers that work together to provide fast delivery of Internet content.
+#
+
+## What is Auto-Scaling
+
+Scaling (the server) with accordance to the demand.
 
 #
 ## On Prem vs Hybrid vs Public Cloud
@@ -111,6 +116,18 @@ Content Delivery Network refers to a geographically distributed group of servers
 - &nbsp; + Most cost effective
 - &nbsp; - Sensitive data may be endangered
 - &nbsp; + Worldwide coverage
+  
+#
+### AWS VM connection diagram
+![AWS connection diagram](paintDiagramLol.png)
+
+Funny paint/gimp diagram but displays connection of a PC(localhost) to AWS via AWS IAM.
+
+- file.pem - PEM stands for Privacy Enhanced Mail. The PEM format is often used to represent certificates, certificate requests, certificate chains, and keys. 
+- .ssh folder - folder that contains .ssh files
+    - SSH, also known as Secure Shell or Secure Socket Shell, is a network protocol that gives users, particularly system administrators, a secure way to access a computer over an unsecured network.
+
+- As long as the connection is exactly specified it is secure
   
 
 #

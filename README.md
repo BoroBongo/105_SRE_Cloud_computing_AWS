@@ -149,9 +149,20 @@ Funny paint/gimp diagram but displays connection of a PC(localhost) to AWS via A
 - Review instances
   - Select key name
 - Launch :D
+  
+## ___________________
+
+In a terminal window (preferably gitbash) follow steps from AWS:
+
+The link should look like this: 
+
+` ssh -i /path/my-key-pair.pem my-instance-user-name@my-instance-public-dns-name `
+
+Once connected update all the required services via `sudo apt-get update -y` and `sudo apt-get upgrade -y` commands. Then install via `sudo apt-get install {name} -y`
 
 #
 ### Useful links
+
 - https://www.comparethecloud.net/articles/the-four-pillars-of-an-enterprise-data-cloud/
 - https://aws.amazon.com/application-hosting/benefits/
 - https://www.instec-corp.com/instec-insights-the-four-pillars-of-cloud-computing

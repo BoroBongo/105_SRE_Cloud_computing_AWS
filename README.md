@@ -188,6 +188,22 @@ Example: after installing nginx with a `sudo apt-get install nginx -y` command y
 - to delete a file (BE SURE ABOUT IT!) use `rm filename`
 
 For the linux cheat sheet go [here](https://www.guru99.com/linux-commands-cheat-sheet.html)
+
+### File permissions
+- to check file permission type `ls -l`
+- to edit file permission type `sudo chmod {rwx} filename` for example if you want readonly you use `sudo chmod r-- filename`
+- rwx is described in binary form i.e. `sudo chmod 700` will create permission type of -rwx------
+  - 0 = ---
+  - 1 = --x
+  - 2 = -w-
+  - 3 = -wx
+  - 4 = r--
+  - 5 = r-x
+  - 6 = rw-
+  - 7 = rwx
+- to check the file permissions `ll`
+- [another cheat sheet](https://chmod-calculator.com/)
+
 #
 ### Useful links
 

@@ -227,6 +227,39 @@ For the linux cheat sheet go [here](https://www.guru99.com/linux-commands-cheat-
   - how to run an exe file `./provision.sh`
   - 
 
+## Tomcat
+![kitty :3](Apache_Tomcat.png)
+### Bash script for tomcat
+
+```bash
+#!/bin/bash
+  # install nginx
+  sudo apt install tomcat9 -y
+  # ensure it's running - start nginx
+  sudo systemctl start tomcat9
+  # enable nginx
+  sudo systemctl enable tomcat9
+  # allow traffic to port 8080
+  sudo ufw allow from any to any port 8080 proto tcp
+```
+Apache Tomcat (called "Tomcat" for short) is a free and open-source implementation of the Jakarta Servlet, Jakarta Expression Language, and WebSocket technologies. Tomcat provides a "pure Java" HTTP web server environment in which Java code can run.
+
+Remember that: 
+- Tomcat runs on port 8080 so enable inbound for this port
+- Tomcat may interfere with other web container services so be wary which services you want to run on which ports
+
+Use cases for tomcat:
+- Static page hosting
+- Reverse proxy
+- Dynamic web applications via Java Servlets and JSP
+- Running WebSocket applications
+- Load balancers
+
+## NGINX 
+![nginx](NGINX.png)
+
+NGINX is open source software for web serving, reverse proxying, caching, load balancing, media streaming, and more. It started out as a web server designed for maximum performance and stability. In addition to its HTTP server capabilities, NGINX can also function as a proxy server for email (IMAP, POP3, and SMTP) and a reverse proxy and load balancer for HTTP, TCP, and UDP servers.
+
 #
 ### Useful links
 

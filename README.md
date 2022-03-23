@@ -167,6 +167,28 @@ Example: after installing nginx with a `sudo apt-get install nginx -y` command y
 ![picture](website_nginx.png)
 
 #
+### Linux basics
+
+- add `sudo` before any command to use it with admin privelages
+- start the service with `sudo systemctl start {service}`
+- stop the service with `sudo systemctl stop {service}`
+- to check the status use `systemctl status {service}`
+- to enable the service use `sudo systemctl enable {service}`
+- to install the service use `sudo apt-get install {package_name}`. To automate the command add `-y` parameter at the end of the command
+- to uninstall the service use `sudo apt remove {package_name}`
+- use `top` to show details of all active processes
+- information of the system `uname` or `uname -a` (whoami)
+- `pwd` print working directory (whereami)
+- `mkdir {dir_name}` make directory(folder)
+- `ls` to list all folders, with parameter `-a` lists all hidden folders
+- how to create a file `touch name_file` or `nano file_name` (if you want to edit it straight after creating) or `cat > file_name` (if you want to edit it straight after within the commandline as a stream)
+- to check contents of the file use `cat file_name`
+- `mv file "new path for the file"` to move the file
+  - make sure to provide quotations otherwise `mv file new_file_name` will change the name
+- to delete a file (BE SURE ABOUT IT!) use `rm filename`
+
+For the linux cheat sheet go [here](https://www.guru99.com/linux-commands-cheat-sheet.html)
+#
 ### Useful links
 
 - https://www.comparethecloud.net/articles/the-four-pillars-of-an-enterprise-data-cloud/

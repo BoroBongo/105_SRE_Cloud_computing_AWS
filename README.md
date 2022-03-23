@@ -233,11 +233,11 @@ For the linux cheat sheet go [here](https://www.guru99.com/linux-commands-cheat-
 
 ```bash
 #!/bin/bash
-  # install nginx
+  # install tomcat
   sudo apt install tomcat9 -y
-  # ensure it's running - start nginx
+  # ensure it's running - start tomcat
   sudo systemctl start tomcat9
-  # enable nginx
+  # enable tomcat
   sudo systemctl enable tomcat9
   # allow traffic to port 8080
   sudo ufw allow from any to any port 8080 proto tcp

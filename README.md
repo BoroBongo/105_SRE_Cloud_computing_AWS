@@ -265,6 +265,56 @@ Use cases for tomcat:
 NGINX is open source software for web serving, reverse proxying, caching, load balancing, media streaming, and more. It started out as a web server designed for maximum performance and stability. In addition to its HTTP server capabilities, NGINX can also function as a proxy server for email (IMAP, POP3, and SMTP) and a reverse proxy and load balancer for HTTP, TCP, and UDP servers.
 
 #
+## Technical interview questions
+
+What is a VPC
+
+- A virtual private cloud (VPC) is a secure, isolated private cloud hosted within a public cloud. VPC customers can run code, store data, host websites, and do anything else they could do in an ordinary private cloud, but the private cloud is hosted remotely by a public cloud provider.
+
+What is Internet gateway
+
+- An Internet gateway is a network "node" that connects two different networks that use different protocols (rules) for communicating.
+- In the most basic terms, an Internet gateway is where data stops on its way to or from other networks.
+- Thanks to gateways, we can communicate and send data back and forth with each other.
+
+What is route tables
+
+- In computer networking, a routing table, or routing information base (RIB), is a data table stored in a router or a network host that lists the routes to particular network destinations, and in some cases, metrics (distances) associated with those routes.
+- The routing table contains information about the topology of the network immediately around it.
+
+What is NACLS
+
+- NACL refers to Network Access Control List, which helps provide a layer of security to the Amazon Web Services stack. NACL helps in providing a firewall thereby helping secure the VPCs and subnets.
+- It helps provide a security layer which controls and efficiently manages the traffic that moves around in the subnets.
+
+What is Security group
+
+- A security group acts as a virtual firewall, controlling the traffic that is allowed to reach and leave the resources that it is associated with.
+- For example, after you associate a security group with an EC2 instance, it controls the inbound and outbound traffic for the instance.
+
+How did you secure your ap on the public cloud?
+
+- Running tests on the app to determine limits of the public cloud
+- Setting up Security Group / Server Firewall
+- Installing/buying services that protect the instance against attacks designed to slow down/terminate the service
+
+What are the outbound rules for SG by default? And why?
+
+- Default SG starts with only one outbound rule that allows all traffic to leave the resource.
+- You must add rules to enable any inbound traffic or to restrict the outbound traffic.
+- A security group can be used only in the VPC for which it is created.
+
+What is the command to kill a process in linux?
+
+- `kill` command is used to send a signal to processes. The most frequently used one is `SIGKILL` or `-9` which terminates the given process
+- Syntax `kill [OPTIONS] [PID]`
+  - `[OPTIONS]` - type of signal
+  - `[PID]` - Process ID number
+  ![signals](signals.png)
+- Most common way of using kill command is that instead of looking for specific PID we use `pidof {processname}` to find it i.e. to kill firefox process we'd use `kill -9 $(pidof firefox)`
+- Sidenote: if you want to find PID yourself use `ps a` command. It'll display all running processes
+
+#
 ### Useful links
 
 - https://www.comparethecloud.net/articles/the-four-pillars-of-an-enterprise-data-cloud/

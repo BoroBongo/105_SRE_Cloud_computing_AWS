@@ -257,7 +257,6 @@ Use cases for tomcat:
 
 ![tomcat def page](tomcat_itworks.png)
 
-
 `default page of tomcat on port`
 
 ## NGINX 

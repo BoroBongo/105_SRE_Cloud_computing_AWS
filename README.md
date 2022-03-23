@@ -204,6 +204,29 @@ For the linux cheat sheet go [here](https://www.guru99.com/linux-commands-cheat-
 - to check the file permissions `ll`
 - [another cheat sheet](https://chmod-calculator.com/)
 
+### Bash scripting
+
+- code block
+  ```bash
+  # create a file called provision.sh
+  # it must start with #!/bin/bash
+  !/bin/bash
+  # run updates
+  sudo apt-get update -y
+  # run upgrades
+  sudo apt-get upgrade -y
+  # install nginx
+  sudo apt install nginx
+  # ensure it's running - start nginx
+  sudo apt start nginx
+  # enable nginx
+  sudo apt enable nginx
+  ```
+
+  - change the file to exe `chmod +x provision.sh`
+  - how to run an exe file `./provision.sh`
+  - 
+
 #
 ### Useful links
 

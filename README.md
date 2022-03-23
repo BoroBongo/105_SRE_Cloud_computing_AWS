@@ -209,18 +209,18 @@ For the linux cheat sheet go [here](https://www.guru99.com/linux-commands-cheat-
 - code block
   ```bash
   # create a file called provision.sh
-  # it must start with #!/bin/bash
-  !/bin/bash
+  #!/bin/bash
   # run updates
   sudo apt-get update -y
   # run upgrades
   sudo apt-get upgrade -y
   # install nginx
-  sudo apt install nginx
+  sudo apt install nginx -y
   # ensure it's running - start nginx
-  sudo apt start nginx
+  sudo systemctl start nginx
   # enable nginx
-  sudo apt enable nginx
+  sudo systemctl enable nginx
+
   ```
 
   - change the file to exe `chmod +x provision.sh`

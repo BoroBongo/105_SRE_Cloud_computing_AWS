@@ -255,6 +255,9 @@ Use cases for tomcat:
 - Running WebSocket applications
 - Load balancers
 
+![tomcat def page](tomcat_itworks.png)
+`default page of tomcat on port`
+
 ## NGINX 
 ![nginx](NGINX.png)
 

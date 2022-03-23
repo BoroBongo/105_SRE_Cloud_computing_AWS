@@ -282,9 +282,15 @@ What is route tables
 - In computer networking, a routing table, or routing information base (RIB), is a data table stored in a router or a network host that lists the routes to particular network destinations, and in some cases, metrics (distances) associated with those routes.
 - The routing table contains information about the topology of the network immediately around it.
 
+What is a subnet
+
+- A subnet, or subnetwork, is a network inside a network. Subnets make networks more efficient.
+- Through subnetting, network traffic can travel a shorter distance without passing through unnecessary routers to reach its destination.
+
 What is NACLS
 
-- NACL refers to Network Access Control List, which helps provide a layer of security to the Amazon Web Services stack. NACL helps in providing a firewall thereby helping secure the VPCs and subnets.
+- NACL refers to Network Access Control List, which helps provide a layer of security to the Amazon Web Services stack.
+- NACL helps in providing a firewall thereby helping secure the VPCs and subnets.
 - It helps provide a security layer which controls and efficiently manages the traffic that moves around in the subnets.
 
 What is Security group

@@ -1,3 +1,6 @@
+# SRE DevOps CheatSheet
+
+## Table of Contents
 <!-- TOC start -->
 - [SRE DevOps CheatSheet](#sre-devops-cheatsheet)
   - [Table of Contents](#table-of-contents)
@@ -37,12 +40,15 @@
     - [2- and N-tier Architecture](#2--and-n-tier-architecture)
       - [2- tier Architecture](#2--tier-architecture)
       - [N-tier Architecture](#n-tier-architecture)
+  - [Software Development Lifecycle (Environments)](#software-development-lifecycle-environments)
+    - [Planning](#planning)
+    - [Development](#development)
+    - [Testing](#testing)
+    - [Staging](#staging)
+    - [Production](#production)
 - [Useful links](#useful-links)
       - [~Adam Franciszek Felix Kolaczynski](#adam-franciszek-felix-kolaczynski)
 <!-- TOC end -->
-# SRE DevOps CheatSheet
-
-## Table of Contents
 
 # AWS Services
 
@@ -328,8 +334,9 @@ What is NACLS
 - It helps provide a security layer which controls and efficiently manages the traffic that moves around in the subnets.
   
 ===================================================
+
 - Security group is the firewall of EC2 Instances.
-Network ACL is the firewall of the VPC Subnets.
+- Network ACL is the firewall of the VPC Subnets.
 
 ===================================================
 
@@ -401,7 +408,33 @@ What is the command to kill a process in linux?
 - Each layer has a specific responsibility.
 - A higher layer can use services in a lower layer, but not the other way around.
 
+## Software Development Lifecycle (Environments)
+
+### Planning
+
+- Turning idea into a plan on how to create the product
+  
+### Development
+
+- Environment in which you implement the steps made within Planning environment
+  
+### Testing
+
+- MOST important step
+- Nothing goes into production before it goes through testing
+
+### Staging
+
+- A safe space right before production
+- Product is fully finished and ready for production but hasn't been pushed yet
+- Final chance to make any changes
+
+### Production
+
+- Product is finished and pushed to public
+  
 #
+
 # Useful links
 
 - https://www.comparethecloud.net/articles/the-four-pillars-of-an-enterprise-data-cloud/

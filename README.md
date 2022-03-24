@@ -33,6 +33,8 @@
   - [Tomcat](#tomcat)
     - [Bash script for tomcat](#bash-script-for-tomcat)
   - [NGINX](#nginx)
+  - [Docker](#docker)
+    - [Bash script for installation](#bash-script-for-installation)
   - [Technical interview questions](#technical-interview-questions)
   - [Monolith Architecture & Microservices Architecture](#monolith-architecture--microservices-architecture)
       - [Monolith Architecture](#monolith-architecture)
@@ -303,6 +305,39 @@ Use cases for tomcat:
 ![nginx](NGINX.png)
 
 NGINX is open source software for web serving, reverse proxying, caching, load balancing, media streaming, and more. It started out as a web server designed for maximum performance and stability. In addition to its HTTP server capabilities, NGINX can also function as a proxy server for email (IMAP, POP3, and SMTP) and a reverse proxy and load balancer for HTTP, TCP, and UDP servers.
+
+## Docker
+
+![docker](Docker.png)
+
+### Bash script for installation
+
+```bash
+#!/bin/bash
+  # uninstall old ver of docker(s)
+  sudo apt-get remove docker docker-engine docker.io containerd runc
+  # update repos
+   sudo apt-get update
+ sudo apt-get install \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+  # Add Docker's official GPG key
+   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+    echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  sudo apt install t -y
+  # ensure it's running - start docker
+   sudo apt-get update
+ sudo apt-get install docker-ce docker-ce-cli containerd.io
+  sudo systemctl start docker-ce docker-ce-cli containerd.io
+  # enable docker
+  sudo systemctl enable docker-ce docker-ce-cli containerd.io
+  sudo apt-get update
+  sudo docker run hello-world
+```
 
 #
 ## Technical interview questions

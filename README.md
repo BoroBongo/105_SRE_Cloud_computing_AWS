@@ -327,6 +327,47 @@ What is the command to kill a process in linux?
 - Sidenote: if you want to find PID yourself use `ps a` command. It'll display all running processes
 
 #
+
+## Monolith Architecture & Microservices Architecture
+
+![monolith](microservices.png)
+### Monolith Architecture
+
+
+- One big service
+- Simple but has limitations and complexity
+- Heavy apps can slow down the startup tim
+- Each update results into redeploying the full stack app
+- Challenging to scale up
+- Perfect for small services that don't require scaling
+
+### Microservices Architecture
+
+- Multiple small services
+- User doesn't have direct access to any database
+- Easily scalable (out and up)
+- Adding features/services requires less refactoring
+- Difficult to manage
+- Expensive
+- Most Secure
+  
+## 2- and N-tier Architecture
+
+![blablapicture](2andNtierarch.png)
+
+### 2- tier Architecture
+
+- A two-tier architecture is a software architecture in which a presentation layer or interface runs on a client, and a data layer or data structure gets stored on a server.
+- Separating these two components into different locations represents a two-tier architecture, as opposed to a single-tier architecture.
+
+### N-tier Architecture
+
+- An N-tier architecture divides an application into logical layers and physical tiers.
+- Layers are a way to separate responsibilities and manage dependencies.
+- Each layer has a specific responsibility.
+- A higher layer can use services in a lower layer, but not the other way around.
+
+#
 ### Useful links
 
 - https://www.comparethecloud.net/articles/the-four-pillars-of-an-enterprise-data-cloud/

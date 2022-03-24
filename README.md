@@ -296,6 +296,7 @@ What is NACLS
 ===================================================
 - Security group is the firewall of EC2 Instances.
 Network ACL is the firewall of the VPC Subnets.
+
 ===================================================
 
 What is Security group

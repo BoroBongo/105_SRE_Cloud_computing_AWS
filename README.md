@@ -31,7 +31,6 @@
     - [Public Cloud](#public-cloud)
     - [AWS VM connection diagram](#aws-vm-connection-diagram)
     - [Creating of an EC2 Instance](#creating-of-an-ec2-instance)
-  - [___________________](#___________________)
     - [Linux basics](#linux-basics)
     - [File permissions](#file-permissions)
     - [Bash scripting](#bash-scripting)
@@ -70,7 +69,7 @@
     - [Public Cloud](#public-cloud-1)
     - [AWS VM connection diagram](#aws-vm-connection-diagram-1)
     - [Creating of an EC2 Instance](#creating-of-an-ec2-instance-1)
-  - [___________________](#___________________-1)
+  - [___________________](#___________________)
     - [Linux basics](#linux-basics-1)
     - [File permissions](#file-permissions-1)
     - [Bash scripting](#bash-scripting-1)
@@ -241,7 +240,7 @@ Funny paint/gimp diagram but displays connection of a PC(localhost) to AWS via A
   - Select key name
 - Launch :D
   
-## ___________________
+#
 
 In a terminal window (preferably gitbash) follow steps from AWS:
 

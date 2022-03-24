@@ -292,6 +292,11 @@ What is NACLS
 - NACL refers to Network Access Control List, which helps provide a layer of security to the Amazon Web Services stack.
 - NACL helps in providing a firewall thereby helping secure the VPCs and subnets.
 - It helps provide a security layer which controls and efficiently manages the traffic that moves around in the subnets.
+  
+===================================================
+- Security group is the firewall of EC2 Instances.
+Network ACL is the firewall of the VPC Subnets.
+===================================================
 
 What is Security group
 

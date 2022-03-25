@@ -28,6 +28,7 @@
   - [AWS VM connection diagram](#aws-vm-connection-diagram)
   - [Simple Storage Service - S3](#simple-storage-service---s3)
     - [Installation](#installation)
+    - [Commands](#commands)
   - [Creating of an EC2 Instance](#creating-of-an-ec2-instance)
     - [Linux basics](#linux-basics)
       - [File permissions](#file-permissions)
@@ -196,6 +197,19 @@ Funny paint/gimp diagram but displays connection of a PC(localhost) to AWS via A
 
 ![diagramS3](S3Diagram.png)
 
+### Commands
+
+- https://docs.aws.amazon.com/cli/latest/userguide/cli-services-s3-commands.html
+
+&nbsp;
+
+- `aws configure`
+- input id keys, region id and format
+- `aws s3 ls` using aws go to s3 service and list all buckets
+- `aws s3 ls s3://{bucketName}` list all files inside this bucket
+- `aws s3 mb s3://{bucketName}` create a new bucket
+- `aws s3 cp s3://{bucketName}/{file} {newPath}` copy file from s3 into the new path
+  
 #
 ## Creating of an EC2 Instance
 
@@ -496,6 +510,7 @@ What is the command to kill a process in linux?
 - https://aws.amazon.com/application-hosting/benefits/
 - https://www.instec-corp.com/instec-insights-the-four-pillars-of-cloud-computing
 - https://www.guru99.com/creating-amazon-ec2-instance.html#3
+- https://docs.aws.amazon.com/cli/latest/userguide/cli-services-s3-commands.html
 
 #
 #### ~Adam Franciszek Felix Kolaczynski

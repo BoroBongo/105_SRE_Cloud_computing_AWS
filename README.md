@@ -26,6 +26,8 @@
     - [Hybrid](#hybrid)
     - [Public Cloud](#public-cloud)
   - [AWS VM connection diagram](#aws-vm-connection-diagram)
+  - [Simple Storage Service - S3](#simple-storage-service---s3)
+    - [Installation](#installation)
   - [Creating of an EC2 Instance](#creating-of-an-ec2-instance)
     - [Linux basics](#linux-basics)
       - [File permissions](#file-permissions)
@@ -175,7 +177,25 @@ Funny paint/gimp diagram but displays connection of a PC(localhost) to AWS via A
 - As long as the connection is exactly specified it is secure
 - AWS IAM (Identity and Access Management) role is an IAM entity that defines a set of permissions for making AWS service requests. IAM roles are not associated with a specific user or group. Instead, trusted entities assume roles, such as IAM users, applications, or AWS services such as EC2.
 - EC2 - Elastic Cloud Compute - provides scalable computing capacity in the AWS cloud. Leveraging it enables organizations to develop and deploy applications faster, without needing to invest in hardware upfront. Users can launch virtual servers, configure security and networking, and manage cookies from an intuitive dashboard.
+
+## Simple Storage Service - S3
+
+![s3](S3.png)
+
+- Amazon Simple Storage Service (Amazon S3) is an object storage service that offers industry-leading scalability, data availability, security, and performance.
+- Customers of all sizes and industries can use Amazon S3 to store and protect any amount of data for a range of use cases, such as data lakes, websites, mobile applications, backup and restore, archive, enterprise applications, IoT devices, and big data analytics.
+- Amazon S3 provides management features so that you can optimize, organize, and configure access to your data to meet your specific business, organizational, and compliance requirements.
   
+&nbsp;
+
+- Data Back up - Disaster recovery plan (DR)
+- S3 classes
+- S3 is globally available - HIGHLY AVAILABLE
+
+### Installation
+
+![diagramS3](S3Diagram.png)
+
 #
 ## Creating of an EC2 Instance
 

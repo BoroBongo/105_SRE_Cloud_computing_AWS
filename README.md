@@ -37,7 +37,13 @@
     - [Bash script for tomcat](#bash-script-for-tomcat)
   - [NGINX](#nginx)
   - [Docker](#docker)
+    - [Buzz-words](#buzz-words)
+      - [Image](#image)
+      - [Container](#container)
     - [Bash script for installation](#bash-script-for-installation)
+    - [Installation on PC (local for Windows 10)](#installation-on-pc-local-for-windows-10)
+    - [Repository creation](#repository-creation)
+      - [Example with nginx step-by-step](#example-with-nginx-step-by-step)
   - [Technical interview questions](#technical-interview-questions)
   - [Monolith Architecture & Microservices Architecture](#monolith-architecture--microservices-architecture)
       - [Monolith Architecture](#monolith-architecture)
@@ -344,6 +350,18 @@ NGINX is open source software for web serving, reverse proxying, caching, load b
 
 ![docker](Docker.png)
 
+### Buzz-words
+
+#### Image
+
+- A Docker image is a read-only template that contains a set of instructions for creating a container that can run on the Docker platform.
+- It provides a convenient way to package up applications and preconfigured server environments, which you can use for your own private use or share publicly with other Docker users.
+
+#### Container
+
+- A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.
+- A Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings.
+
 ### Bash script for installation
 
 ```bash
@@ -373,7 +391,37 @@ NGINX is open source software for web serving, reverse proxying, caching, load b
   sudo docker run hello-world
 ```
 
-#
+### Installation on PC (local for Windows 10)
+
+- Follow steps from this [link](https://hub.docker.com/editions/community/docker-ce-desktop-windows)
+- Make sure that your hardware has virtualization enabled in BIOS (CPU)
+- Log in
+- That's it !
+  
+### Repository creation
+
+- First you create a rep on DockerHub ( <b> name convention is lowercase </b>)
+- Once you've finished working on the container you commit it as an image with command: `docker commit {ID OF CONTAINER} {FULL REPO NAME}`
+- Once you've created the image you want to push to repo use commad: `docker push {FULL REPO NAME}:{TAG}` ( <b> if no tag is written it'll be pushed to `latest` </b>)
+- That's pretty much it !
+  
+#### Example with nginx step-by-step
+
+- Pull and run nginx with `docker run -d -p 80:80 nginx`
+  - It pulls nginx and runs it
+  - `-d` specifies detached (logs are not displayed live on the docker cmd)
+  - `-p` specifies ports first `80` specifies localhost port, second `80` specifies default port of the container (default 80 for nginx)
+  - Ports specification is fairly similar to how nginxs proxy works
+- Get nginx container ID with `ps` command
+- Enter nginx container AMI with `docker exec -it {CONTAINER ID} sh`
+  - TIP: <b> To understand in what environment you're in use `uname -a` </b>
+- In this part you edit the nginx html you can do it either by:
+  - Installing nano and editing /usr/share/nginx/html/index.html
+  - Creating index.html on your local machine and uploading it with command: `docker cp {path to the file on local machine}/index.html {CONTAINER ID}:/usr/share/nginx/html/index.html`
+- Now that container part is done we commit the container into an image with `docker commit {ID OF CONTAINER} {FULL REPO NAME}`
+- And now we push it to our repo with `docker push {FULL REPO NAME}:{TAG}`
+- <h1> That's it ! </h1>
+
 ## Technical interview questions
 
 What is a VPC

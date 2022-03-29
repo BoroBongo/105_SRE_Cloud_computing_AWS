@@ -44,6 +44,7 @@
     - [Installation on PC (local for Windows 10)](#installation-on-pc-local-for-windows-10)
     - [Repository creation](#repository-creation)
       - [Example with nginx step-by-step](#example-with-nginx-step-by-step)
+    - [My DockerHub](#my-dockerhub)
   - [Technical interview questions](#technical-interview-questions)
   - [Monolith Architecture & Microservices Architecture](#monolith-architecture--microservices-architecture)
       - [Monolith Architecture](#monolith-architecture)
@@ -414,9 +415,11 @@ NGINX is open source software for web serving, reverse proxying, caching, load b
 
 - First you create a rep on DockerHub ( <b> name convention is lowercase </b>)
 - Once you've finished working on the container you commit it as an image with command:
-  `docker commit {ID OF CONTAINER} {FULL REPO NAME}`
+
+- `docker commit {ID OF CONTAINER} {FULL REPO NAME}`
 - Once you've created the image you want to push to repo use commad: 
-  `docker push {FULL REPO NAME}:{TAG}`
+
+- `docker push {FULL REPO NAME}:{TAG}`
   - ( <b> if no tag is written it'll be pushed to `latest` </b>)
   
 <h1>That's pretty much it !</h1>
@@ -424,25 +427,30 @@ NGINX is open source software for web serving, reverse proxying, caching, load b
 #### Example with nginx step-by-step
 
 - Pull and run nginx with
-  `docker run -d -p 80:80 nginx`
+
+- `docker run -d -p 80:80 nginx`
   - It pulls nginx and runs it
-  - `-d` specifies detached (logs are not displayed live on the docker cmd)
-  - `-p` specifies ports first `80` specifies localhost port, second `80` specifies default port of the container (default 80 for nginx)
+    - `-d` specifies detached (logs are not displayed live on the docker cmd)
+    - `-p` specifies ports first `80` specifies localhost port, second `80` specifies default port of the container (default 80 for nginx)
   - Ports specification is fairly similar to how nginxs proxy works
 - Get nginx container ID with `ps` command
-- Enter nginx container AMI with 
-  `docker exec -it {CONTAINER ID} sh`
+- Enter nginx container AMI with
+- `docker exec -it {CONTAINER ID} sh`
   - TIP: <b> To understand in what environment you're in use `uname -a` </b>
 - In this part you edit the nginx html you can do it either by:
   - Installing nano and editing /usr/share/nginx/html/index.html
   - Creating index.html on your local machine and uploading it with command: 
 - `docker cp {path to the file on local machine}/index.html {CONTAINER ID}:/usr/share/nginx/html/index.html`
-- Now that container part is done we commit the container into an image with 
-  `docker commit {ID OF CONTAINER} {FULL REPO NAME}`
+- Now that container part is done we commit the container into an image with
+- `docker commit {ID OF CONTAINER} {FULL REPO NAME}`
 - And now we push it to our repo with 
   `docker push {FULL REPO NAME}:{TAG}`
 
 <h1> That's it ! </h1>
+
+### My DockerHub
+
+[<img src="docker-button.png" alt="docker" width=40%/>](https://hub.docker.com/u/borobongo)
 
 ## Technical interview questions
 

@@ -348,9 +348,14 @@ NGINX is open source software for web serving, reverse proxying, caching, load b
 
 ## Docker
 
-`Docker is an application build and deployment tool. It is based on the idea of that you can package your code with dependencies into a deployable unit called a container. Containers have been around for quite some time.`
-
 ![docker](Docker.png)
+
+`Docker is an application build and deployment tool. It is based on the idea of that you can package your code with dependencies into a deployable unit called a container.`
+
+- Docker can package an application and its dependencies in a virtual container that can run on any Linux, Windows, or macOS computer.
+- This enables the application to run in a variety of locations, such as on-premises, in public or private cloud.
+- When running on Linux, Docker uses the resource isolation features of the Linux kernel and a union-capable file system to allow containers to run within a single Linux instance, avoiding the overhead of starting and maintaining virtual machines.
+- Docker on macOS uses a Linux virtual machine to run the containers.
 
 ### Buzz-words
 
@@ -360,6 +365,8 @@ NGINX is open source software for web serving, reverse proxying, caching, load b
 - It provides a convenient way to package up applications and preconfigured server environments, which you can use for your own private use or share publicly with other Docker users.
 
 #### Container
+
+![diagram](docker-container-lifecycle-diagram.png)
 
 - A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.
 - A Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings.

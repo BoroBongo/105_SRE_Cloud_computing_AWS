@@ -361,6 +361,8 @@ NGINX is open source software for web serving, reverse proxying, caching, load b
 
 #### Image
 
+![bruh](docker_architecture.png)
+
 - A Docker image is a read-only template that contains a set of instructions for creating a container that can run on the Docker platform.
 - It provides a convenient way to package up applications and preconfigured server environments, which you can use for your own private use or share publicly with other Docker users.
 

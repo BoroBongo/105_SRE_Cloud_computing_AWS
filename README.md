@@ -44,6 +44,8 @@
     - [Installation on PC (local for Windows 10)](#installation-on-pc-local-for-windows-10)
     - [Repository creation](#repository-creation)
       - [Example with nginx step-by-step](#example-with-nginx-step-by-step)
+    - [Building a Microservice](#building-a-microservice)
+      - [Building Northwind API into a Microservice](#building-northwind-api-into-a-microservice)
     - [My DockerHub](#my-dockerhub)
   - [Technical interview questions](#technical-interview-questions)
   - [Monolith Architecture & Microservices Architecture](#monolith-architecture--microservices-architecture)
@@ -447,6 +449,52 @@ NGINX is open source software for web serving, reverse proxying, caching, load b
   `docker push {FULL REPO NAME}:{TAG}`
 
 <h1> That's it ! </h1>
+
+### Building a Microservice
+
+<b>Docker file to automate the process of building customised image </b>
+
+- Crio - Rocket - <b> Docker </b>
+- Automate image building of our customised nginx image
+- Create a `Dockerfile` in the same location where our index.html is
+- decide which base image to use for your image
+- If all works locally push to dockerhub
+
+#### Building Northwind API into a Microservice
+
+- Follow [this](https://docs.docker.com/samples/dotnetcore/) tutorial how to create a [Dockerfile](https://docs.docker.com/engine/reference/builder/#arg)
+
+- Example of Dockerfile
+
+```docker
+# Get base SDK Image from microsoft
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build-env
+WORKDIR /app
+
+# Copy the CSPROJ file and restore any dependencies (via NUGGET)
+COPY *.csproj ./
+RUN dotnet restore
+
+# Copy the project files and build our release
+COPY . ./
+RUN dotnet publish -c Release -o out
+
+# GENERATE runtime image
+FROM mcr.microsoft.com/dotnet/aspnet:6.0
+WORKDIR /app
+EXPOSE 80
+COPY --from=build-env /app/out .
+ENTRYPOINT ["dotnet", "ProductsApiApp.dll"]
+```
+
+- Now you can build the image with
+
+```bash
+docker build -t {name of the image}} .
+```
+
+- Once you've built the image you can run it on your local machine on the port you'll specify
+- Refer to my [DockerHub repository](https://hub.docker.com/repository/docker/borobongo/docker-northwind-api) on how to set the microservice
 
 ### My DockerHub
 

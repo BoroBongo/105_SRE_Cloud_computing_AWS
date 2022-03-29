@@ -348,6 +348,8 @@ NGINX is open source software for web serving, reverse proxying, caching, load b
 
 ## Docker
 
+`Docker is an application build and deployment tool. It is based on the idea of that you can package your code with dependencies into a deployable unit called a container. Containers have been around for quite some time.`
+
 ![docker](Docker.png)
 
 ### Buzz-words

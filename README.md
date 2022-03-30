@@ -50,10 +50,10 @@
     - [Kubernetes (K8)](#kubernetes-k8)
       - [What is it?](#what-is-it)
       - [Service Types](#service-types)
-    - [Deployment](#deployment)
-    - [Service](#service)
-    - [Pods](#pods)
-    - [Autoscaling](#autoscaling)
+      - [Deployment](#deployment)
+      - [Service](#service)
+      - [Pods](#pods)
+      - [Autoscaling](#autoscaling)
     - [Windows installation - K8](#windows-installation---k8)
     - [Kubectl cheatsheet](#kubectl-cheatsheet)
     - [My DockerHub](#my-dockerhub)
@@ -626,7 +626,7 @@ spec:
   externalName: my.database.example.com
 ```
 
-### Deployment
+#### Deployment
 
 ```markdown
 A Deployment provides declarative updates for Pods and ReplicaSets.
@@ -634,14 +634,14 @@ A Deployment provides declarative updates for Pods and ReplicaSets.
 You describe a desired state in a Deployment, and the Deployment Controller changes the actual state to the desired state at a controlled rate. You can define Deployments to create new ReplicaSets, or to remove existing Deployments and adopt all their resources with new Deployments.
 ```
 
-### Service
+#### Service
 
 ```
 An abstract way to expose an application running on a set of Pods as a network service.
 With Kubernetes you don't need to modify your application to use an unfamiliar service discovery mechanism. Kubernetes gives Pods their own IP addresses and a single DNS name for a set of Pods, and can load-balance across them.
 ```
 
-### Pods
+#### Pods
 
 ```
 Pods are the smallest deployable units of computing that you can create and manage in Kubernetes.
@@ -649,7 +649,7 @@ Pods are the smallest deployable units of computing that you can create and mana
 A Pod (as in a pod of whales or pea pod) is a group of one or more containers, with shared storage and network resources, and a specification for how to run the containers. A Pod's contents are always co-located and co-scheduled, and run in a shared context. A Pod models an application-specific "logical host": it contains one or more application containers which are relatively tightly coupled. In non-cloud contexts, applications executed on the same physical or virtual machine are analogous to cloud applications executed on the same logical host.
 ```
 
-### Autoscaling
+#### Autoscaling
 
 ```
 Horizontal scaling means that the response to increased load is to deploy more Pods. This is different from vertical scaling, which for Kubernetes would mean assigning more resources (for example: memory or CPU) to the Pods that are already running for the workload.

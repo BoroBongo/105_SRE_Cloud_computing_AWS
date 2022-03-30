@@ -54,6 +54,8 @@
       - [Service](#service)
       - [Pods](#pods)
       - [Autoscaling](#autoscaling)
+      - [Self-healing](#self-healing)
+      - [Load-balancing](#load-balancing)
       - [Windows installation - K8](#windows-installation---k8)
       - [Kubectl cheatsheet](#kubectl-cheatsheet)
     - [My DockerHub](#my-dockerhub)
@@ -516,6 +518,8 @@ docker build -t {name of the image}} .
 
 <img src="kubernetes.png" alt="kubernetes" width=50%/>
 
+<a href="https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/"><b>! Useful for theory !</b></a>
+
 #### What is it?
 
 - Kubernetes, also known as K8s, is an open-source system for automating deployment, scaling, and management of containerized applications.
@@ -655,6 +659,18 @@ A Pod (as in a pod of whales or pea pod) is a group of one or more containers, w
 Horizontal scaling means that the response to increased load is to deploy more Pods. This is different from vertical scaling, which for Kubernetes would mean assigning more resources (for example: memory or CPU) to the Pods that are already running for the workload.
 
 If the load decreases, and the number of Pods is above the configured minimum, the HorizontalPodAutoscaler instructs the workload resource (the Deployment, StatefulSet, or other similar resource) to scale back down.
+```
+
+#### Self-healing
+
+```
+Self-healing is a feature provided by the Kubernetes open-source system. If a containerized app or an application component fails or goes down, Kubernetes re-deploys it to retain the desired state. Kubernetes provides self-healing by default.
+```
+
+#### Load-balancing
+
+```
+Load balancing, a critical strategy for maximizing availability and scalability, is the process of distributing network traffic efficiently among multiple backend services. A number of Kubernetes load balancer strategies and algorithms for managing external traffic to pods exist. Each has its strengths and weaknesses.
 ```
 
 #### Windows installation - K8

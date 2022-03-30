@@ -13,28 +13,28 @@ kind: Deployment # what kind of service/object you want to create
 
 # what would you like to call it - name the service/object
 metadata: 
-  name: nginx-deployment
+  name: api-deployment
 
 
 spec: 
   selector:
     matchLabels:
-      app: nginx # look for this label to match with k8 service
+      app: api # look for this label to match with k8 service
 
   # Let's create a replica set of this with 3 instances/pods
-  replicas: 3
+  replicas: 2
 
   # Template to use it's label for K8 service to launch in the browser
   template: 
     metadata:
       labels: 
-        app: nginx # This label connects to the service or any other K8 components
+        app: api # This label connects to the service or any other K8 components
     
     #Let's define the container spec:
     spec:
       containers:
-      - name: nginx
-        image: borobongo/105_adam_nginx
+      - name: api
+        image: borobongo/docker-northwind-api:localhost
         ports:
         - containerPort: 80
 

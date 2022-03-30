@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-svr
+  name: api-svc
   namespace: default
 spec:
   type: LoadBalancer
   selector:
-    app: nginx
+    app: api
   ports:
   - name: http
     protocol: TCP

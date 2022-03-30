@@ -58,6 +58,7 @@
       - [Load-balancing](#load-balancing)
       - [Windows installation - K8](#windows-installation---k8)
       - [Kubectl cheatsheet](#kubectl-cheatsheet)
+    - [Creation of Deployment and Service via .yml](#creation-of-deployment-and-service-via-yml)
     - [My DockerHub](#my-dockerhub)
   - [Technical interview questions](#technical-interview-questions)
   - [Monolith Architecture & Microservices Architecture](#monolith-architecture--microservices-architecture)
@@ -686,6 +687,118 @@ Load balancing, a critical strategy for maximizing availability and scalability,
 # kubectl get deploy nginx_deploy (nginx_svc)
 # kubectl get pods
 # kubectl describe pod pod_name
+```
+### Creation of Deployment and Service via .yml
+
+```yml
+# K8 works with API versions to declare the resources
+# We have to declase to apiVersion and the kind of service/component
+# services: deployment, service, pods, replicasets, crobjob, autoscalinggroup, horizontal pod scaling group (HPA)
+# kubectl get service_name - deployment - pod - rs
+# kubectl get deploy nginx_deploy (nginx_svc)
+# kubectl get pods
+# kubectl describe pod pod_name
+
+# YML is case sensitive - indentation of YML is important
+# use spaces not a tab
+apiVersion: apps/v1 # which api to use for deployment
+kind: Deployment # what kind of service/object you want to create
+
+# what would you like to call it - name the service/object
+metadata: 
+  name: api-deployment
+
+
+spec: 
+  selector:
+    matchLabels:
+      app: api # look for this label to match with k8 service
+
+  # Let's create a replica set of this with 3 instances/pods
+  replicas: 2
+
+  # Template to use it's label for K8 service to launch in the browser
+  template: 
+    metadata:
+      labels: 
+        app: api # This label connects to the service or any other K8 components
+    
+    #Let's define the container spec:
+    spec:
+      containers:
+      - name: api
+        image: borobongo/docker-northwind-api:localhost
+        ports:
+        - containerPort: 80
+
+# create a kubernetes nginx-service.yml to create a k8 service
+
+---
+# The service
+apiVersion: v1
+kind: Service
+metadata:
+  name: api-svc
+  namespace: default
+spec:
+  type: LoadBalancer
+  selector:
+    app: api
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 80
+    nodePort: 30000 # 30000-32767, Optional field
+```
+
+<h2> Bare in mind that for the API to work you need the database working so before creating api deploy&svc create db deploy&svc</h2>
+
+```yml
+
+apiVersion: apps/v1 # which api to use for deployment
+kind: Deployment # what kind of service/object you want to create
+
+# what would you like to call it - name the service/object
+metadata: 
+  name: northwind-deployment
+
+
+spec: 
+  selector:
+    matchLabels:
+      app: db # look for this label to match with k8 service
+
+  # Let's create a replica set of this with 3 instances/pods
+  replicas: 2
+
+  # Template to use it's label for K8 service to launch in the browser
+  template: 
+    metadata:
+      labels: 
+        app: db # This label connects to the service or any other K8 components
+    
+    #Let's define the container spec:
+    spec:
+      containers:
+      - name: db
+        image: borobongo/mssql_northwind
+        ports:
+        - containerPort: 1433
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: db-svc
+  namespace: default
+spec:
+  selector:
+    app: db
+  ports:
+  - name: http
+    protocol: TCP
+    port: 1433
+    targetPort: 1433
 ```
 
 ### My DockerHub

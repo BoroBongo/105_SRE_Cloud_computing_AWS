@@ -46,6 +46,7 @@
       - [Example with nginx step-by-step](#example-with-nginx-step-by-step)
     - [Building a Microservice](#building-a-microservice)
       - [Building Northwind API into a Microservice](#building-northwind-api-into-a-microservice)
+      - [Docker compose](#docker-compose)
     - [My DockerHub](#my-dockerhub)
   - [Technical interview questions](#technical-interview-questions)
   - [Monolith Architecture & Microservices Architecture](#monolith-architecture--microservices-architecture)
@@ -495,6 +496,12 @@ docker build -t {name of the image}} .
 
 - Once you've built the image you can run it on your local machine on the port you'll specify
 - Refer to my [DockerHub repository](https://hub.docker.com/repository/docker/borobongo/docker-northwind-api) on how to set the microservice
+
+#### Docker compose
+
+- <b> Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services. </b>
+- <b>With a single command, you create and start all the services from your configuration. </b>
+- To learn more about all the features of Compose, see the [tutorial](https://docs.docker.com/compose/)
 
 ### My DockerHub
 

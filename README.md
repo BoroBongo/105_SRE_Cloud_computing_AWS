@@ -54,8 +54,8 @@
       - [Service](#service)
       - [Pods](#pods)
       - [Autoscaling](#autoscaling)
-    - [Windows installation - K8](#windows-installation---k8)
-    - [Kubectl cheatsheet](#kubectl-cheatsheet)
+      - [Windows installation - K8](#windows-installation---k8)
+      - [Kubectl cheatsheet](#kubectl-cheatsheet)
     - [My DockerHub](#my-dockerhub)
   - [Technical interview questions](#technical-interview-questions)
   - [Monolith Architecture & Microservices Architecture](#monolith-architecture--microservices-architecture)
@@ -657,11 +657,11 @@ Horizontal scaling means that the response to increased load is to deploy more P
 If the load decreases, and the number of Pods is above the configured minimum, the HorizontalPodAutoscaler instructs the workload resource (the Deployment, StatefulSet, or other similar resource) to scale back down.
 ```
 
-### Windows installation - K8
+#### Windows installation - K8
 
 <a href="https://www.knowledgehut.com/blog/devops/install-kubernetes-on-windows"><h3>Follow this tutorial</h3></a>
 
-### Kubectl cheatsheet
+#### Kubectl cheatsheet
 
 <a href="https://kubernetes.io/docs/reference/kubectl/cheatsheet/"><h3>Everything you need is here</h2></a>
 

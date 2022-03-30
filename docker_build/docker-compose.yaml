@@ -17,4 +17,3 @@ services:
             SA_PASSWORD: "Passw0rd12"
             ACCEPT_EULA: "Y"
             MSSQL_PID: Express
-        command: "echo hello"

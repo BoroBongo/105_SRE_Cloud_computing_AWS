@@ -47,6 +47,7 @@
     - [Building a Microservice](#building-a-microservice)
       - [Building Northwind API into a Microservice](#building-northwind-api-into-a-microservice)
       - [Docker compose](#docker-compose)
+    - [Kubernetes](#kubernetes)
     - [My DockerHub](#my-dockerhub)
   - [Technical interview questions](#technical-interview-questions)
   - [Monolith Architecture & Microservices Architecture](#monolith-architecture--microservices-architecture)
@@ -502,6 +503,15 @@ docker build -t {name of the image}} .
 - <b> Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services. </b>
 - <b>With a single command, you create and start all the services from your configuration. </b>
 - To learn more about all the features of Compose, see the [tutorial](https://docs.docker.com/compose/)
+
+### Kubernetes 
+
+<img src="kubernetes.png" alt="kubernetes" width=50%/>
+
+- Kubernetes, also known as K8s, is an open-source system for automating deployment, scaling, and management of containerized applications.
+
+- It groups containers that make up an application into logical units for easy management and discovery.
+- Kubernetes builds upon 15 years of experience of running production workloads at Google, combined with best-of-breed ideas and practices from the community.
 
 ### My DockerHub
 

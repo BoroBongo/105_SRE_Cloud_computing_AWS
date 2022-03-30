@@ -47,7 +47,15 @@
     - [Building a Microservice](#building-a-microservice)
       - [Building Northwind API into a Microservice](#building-northwind-api-into-a-microservice)
       - [Docker compose](#docker-compose)
-    - [Kubernetes](#kubernetes)
+    - [Kubernetes (K8)](#kubernetes-k8)
+      - [What is it?](#what-is-it)
+      - [Service Types](#service-types)
+    - [Deployment](#deployment)
+    - [Service](#service)
+    - [Pods](#pods)
+    - [Autoscaling](#autoscaling)
+    - [Windows installation - K8](#windows-installation---k8)
+    - [Kubectl cheatsheet](#kubectl-cheatsheet)
     - [My DockerHub](#my-dockerhub)
   - [Technical interview questions](#technical-interview-questions)
   - [Monolith Architecture & Microservices Architecture](#monolith-architecture--microservices-architecture)
@@ -504,14 +512,165 @@ docker build -t {name of the image}} .
 - <b>With a single command, you create and start all the services from your configuration. </b>
 - To learn more about all the features of Compose, see the [tutorial](https://docs.docker.com/compose/)
 
-### Kubernetes 
+### Kubernetes (K8) 
 
 <img src="kubernetes.png" alt="kubernetes" width=50%/>
+
+#### What is it?
 
 - Kubernetes, also known as K8s, is an open-source system for automating deployment, scaling, and management of containerized applications.
 
 - It groups containers that make up an application into logical units for easy management and discovery.
 - Kubernetes builds upon 15 years of experience of running production workloads at Google, combined with best-of-breed ideas and practices from the community.
+
+#### Service Types
+
+<h2><b>TL;DR</b></h2>
+Kubernetes Service is used to expose an application deployed on a set of pods using a single endpoint. Services are introduced to provide reliable networking by bringing stable IP addresses and DNS names to ephemeral pods. Service enables network access to a set of Pods in Kubernetes.
+
+&nbsp;
+
+<img src="kubernetes-services.png" width=90% />
+
+[More in depth here](https://medium.com/devops-mojo/kubernetes-service-types-overview-introduction-to-k8s-service-types-what-are-types-of-kubernetes-services-ea6db72c3f8c)
+
+There are four types of Kubernetes services — ClusterIP, NodePort, LoadBalancer and ExternalName. The type property in the Service's spec determines how the service is exposed to the network.
+
+- ClusterIP
+  - ClusterIP is the default and most common service type.
+  - Kubernetes will assign a cluster-internal IP address to ClusterIP service.
+  - This makes the service only reachable within the cluster.
+  - You cannot make requests to service (pods) from outside the cluster.
+  -You can optionally set cluster IP in the service definition file.
+
+```yml
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-backend-service
+spec:
+  type: ClusterIP # Optional field (default)
+  clusterIP: 10.10.0.1 # within service cluster ip range
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 8080 
+```
+
+- NodePort
+  - NodePort service is an extension of ClusterIP service. A ClusterIP Service, to which the NodePort Service routes, is automatically created.
+  - It exposes the service outside of the cluster by adding a cluster-wide port on top of ClusterIP.
+  - NodePort exposes the service on each Node’s IP at a static port (the NodePort). Each node proxies that port into your Service. So, external traffic has access to fixed port on each Node. It means any request to your cluster on that port gets forwarded to the service.
+  - You can contact the NodePort Service, from outside the cluster, by requesting `<NodeIP>:<NodePort>`.
+  - Node port must be in the range of `30000–32767`. Manually allocating a port to the service is optional. If it is undefined, Kubernetes will automatically assign one.
+  - If you are going to choose node port explicitly, ensure that the port was not already used by another service.
+
+```yml
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-frontend-service
+spec:
+  type: NodePort
+  selector:
+    app: web
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 8080
+    nodePort: 30000 # 30000-32767, Optional field
+```
+
+- LoadBalancer
+  - LoadBalancer service is an extension of NodePort service. NodePort and ClusterIP Services, to which the external load balancer routes, are automatically created.
+  - It integrates NodePort with cloud-based load balancers.
+  - It exposes the Service externally using a cloud provider’s load balancer.
+  - Each cloud provider (AWS, Azure, GCP, etc) has its own native load balancer implementation. The cloud provider will create a load balancer, which then automatically routes requests to your Kubernetes Service.
+  - Traffic from the external load balancer is directed at the backend Pods. The cloud provider decides how it is load balanced.
+  - The actual creation of the load balancer happens asynchronously.
+  - Every time you want to expose a service to the outside world, you have to create a new LoadBalancer and get an IP address.
+
+```yml
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-frontend-service
+spec:
+  type: LoadBalancer
+  clusterIP: 10.0.171.123
+  loadBalancerIP: 123.123.123.123
+  selector:
+    app: web
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 8080
+```
+
+- ExternalName
+  - Services of type ExternalName map a Service to a DNS name, not to a typical selector such as my-service.
+  - You specify these Services with the `spec.externalName` parameter.
+  - It maps the Service to the contents of the externalName field (e.g. foo.bar.example.com), by returning a CNAME record with its value.
+  - No proxying of any kind is established.
+
+```yml
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  type: ExternalName
+  externalName: my.database.example.com
+```
+
+### Deployment
+
+```markdown
+A Deployment provides declarative updates for Pods and ReplicaSets.
+
+You describe a desired state in a Deployment, and the Deployment Controller changes the actual state to the desired state at a controlled rate. You can define Deployments to create new ReplicaSets, or to remove existing Deployments and adopt all their resources with new Deployments.
+```
+
+### Service
+
+```
+An abstract way to expose an application running on a set of Pods as a network service.
+With Kubernetes you don't need to modify your application to use an unfamiliar service discovery mechanism. Kubernetes gives Pods their own IP addresses and a single DNS name for a set of Pods, and can load-balance across them.
+```
+
+### Pods
+
+```
+Pods are the smallest deployable units of computing that you can create and manage in Kubernetes.
+
+A Pod (as in a pod of whales or pea pod) is a group of one or more containers, with shared storage and network resources, and a specification for how to run the containers. A Pod's contents are always co-located and co-scheduled, and run in a shared context. A Pod models an application-specific "logical host": it contains one or more application containers which are relatively tightly coupled. In non-cloud contexts, applications executed on the same physical or virtual machine are analogous to cloud applications executed on the same logical host.
+```
+
+### Autoscaling
+
+```
+Horizontal scaling means that the response to increased load is to deploy more Pods. This is different from vertical scaling, which for Kubernetes would mean assigning more resources (for example: memory or CPU) to the Pods that are already running for the workload.
+
+If the load decreases, and the number of Pods is above the configured minimum, the HorizontalPodAutoscaler instructs the workload resource (the Deployment, StatefulSet, or other similar resource) to scale back down.
+```
+
+### Windows installation - K8
+
+<a href="https://www.knowledgehut.com/blog/devops/install-kubernetes-on-windows"><h3>Follow this tutorial</h3></a>
+
+### Kubectl cheatsheet
+
+<a href="https://kubernetes.io/docs/reference/kubectl/cheatsheet/"><h3>Everything you need is here</h2></a>
+
+```yml
+# kubectl get service_name - deployment - pod - rs
+# kubectl get deploy nginx_deploy (nginx_svc)
+# kubectl get pods
+# kubectl describe pod pod_name
+```
 
 ### My DockerHub
 

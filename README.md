@@ -59,6 +59,7 @@
       - [Windows installation - K8](#windows-installation---k8)
       - [Kubectl cheatsheet](#kubectl-cheatsheet)
     - [Creation of Deployment and Service via .yml](#creation-of-deployment-and-service-via-yml)
+      - [Minikube](#minikube)
     - [My DockerHub](#my-dockerhub)
   - [Technical interview questions](#technical-interview-questions)
   - [Monolith Architecture & Microservices Architecture](#monolith-architecture--microservices-architecture)
@@ -800,6 +801,22 @@ spec:
     port: 1433
     targetPort: 1433
 ```
+
+#### Minikube
+
+[<img src="minikube-logo-full.png" alt="minikube" width=70%/>](https://aws.plainenglish.io/running-kubernetes-using-minikube-cluster-on-the-aws-cloud-4259df916a07)
+
+Minikube is local Kubernetes, focusing on making it easy to learn and develop for Kubernetes.
+
+All you need is Docker (or similarly compatible) container or a Virtual Machine environment, and Kubernetes is a single command away: minikube start.
+
+For Installation guide click -->[here](https://aws.plainenglish.io/running-kubernetes-using-minikube-cluster-on-the-aws-cloud-4259df916a07)<---
+
+For connecting multiple EC2 Instances with minikube follow this [tutorial](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.Scenarios.html)
+
+<h3><b>Make sure that the security groups are compliant with all of the ports of the services you run</b></h3>
+
+<h3><b>!!! Running K8 on EC2 machine requires a solid understanding of networking especially network traffic and port forwarding !!!</b></h3>
 
 ### My DockerHub
 

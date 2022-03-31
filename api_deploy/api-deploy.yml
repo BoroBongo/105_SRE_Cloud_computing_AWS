@@ -34,7 +34,7 @@ spec:
     spec:
       containers:
       - name: api
-        image: borobongo/docker-northwind-api:localhost
+        image: borobongo/docker-northwind-api:v2
         ports:
         - containerPort: 80
 
